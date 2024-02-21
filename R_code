@@ -1,0 +1,10 @@
+#df zum data frame transformieren
+df <- data.frame(df)
+
+library(vars) # Load package
+
+# Estimate VAR
+var_aic <- VAR(df[,c(2,3,4,5,6,7)], type = "const", lag.max = 8, ic = "AIC", season = 4)
+
+# Lag order suggested by AIC
+var_aic$p
