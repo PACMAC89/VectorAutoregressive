@@ -1,3 +1,19 @@
+install.packages("tsDyn")
+library(tsDyn)
+library(vars)
+library(readr)
+library(tsibble)
+library(dplyr)
+library(lubridate)
+install.packages("ggplot2")
+library(ggplot2)
+library(tidyverse)
+#für VECM
+library(urca)  # ca.jo, ur.df, finland
+library(vars)  # vec2var
+library(tsDyn) # VECM
+library(tseries)
+
 #df zum data frame transformieren
 df <- data.frame(df)
 
@@ -8,3 +24,10 @@ var_aic <- VAR(df[,c(2,3,4,5,6,7)], type = "const", lag.max = 8, ic = "AIC", sea
 
 # Lag order suggested by AIC
 var_aic$p
+
+#Now apply ADF tests
+adf.test(SNP)
+adf.test(GDP1) 
+adf.test(IR) 
+adf.test(PCETS)
+adf.test(BCITS)
